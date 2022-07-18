@@ -6,8 +6,10 @@
   </ion-button>
 </ion-buttons>
 
+<ion-back-button color="light" text="" [routerLink]="['/contacts']"></ion-back-button>
+
 <ion-buttons slot="end">
-  <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Sign Up</ion-button>
+  <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button>
 </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -30,4 +32,11 @@
 <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active"  expand="block" shape="round">Entrar</ion-button>
 
 </form>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
 </ion-content>
