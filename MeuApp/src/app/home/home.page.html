@@ -1,20 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content appUi [scrollEvents]="true" [fullscreen]="true">
+  <div class="control ion-padding">
+    <ion-buttons slot="start">
+      <ion-button color="dark" [routerLink]="['/notifications']" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon name="information-circle-outline"></ion-icon>      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button color="dark" [routerLink]="['/notifications']" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon slot="end" name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </div>
-</ion-content>
+  <div class="header ion-padding ion-margin-top" style="display: flex; align-items: center">
+    <ion-avatar class="ion-margin-start">
+      <img src="../../assets/img/avatar.png" />
+    </ion-avatar>
+    <h2 style="margin-left: 10px">SupazScore</h2>
+  </div>

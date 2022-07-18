@@ -25,3 +25,23 @@
 #container a {
   text-decoration: none;
 }
+
+.header {
+  height:104px;
+  h2 {
+    font-size: 20px;
+    line-height: 26px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+}
+
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.popover-arrow::after {
+  display: none !important;
+}

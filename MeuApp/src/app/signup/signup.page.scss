@@ -38,7 +38,7 @@ ion-content{
       font-size: 18px ;
       text-transform: initial;
       border-radius: 50px;
-      box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.5) ;
+      // box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.5) ;
       --box-shadow:none;
 
 
@@ -49,6 +49,7 @@ ion-content{
     text-align: center;
     color: #b6b6b6;
     margin-top: 40px;
+    font-size: 10px;
   }
 
 }
