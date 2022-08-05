@@ -1,0 +1,38 @@
+<ion-content appUi [scrollEvents]="true" [fullscreen]="true">
+  <div class="control ion-padding">
+    <ion-buttons slot="start">
+      <ion-button color="dark" [routerLink]="['/info']" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon name="list"></ion-icon>      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button color="dark" [routerLink]="['/notifications']" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon slot="end" name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <div class="header ion-padding ion-margin-top" style="display: flex; align-items: center">
+    <ion-avatar class="ion-margin-start">
+      <img src="assets/img/blood.jpeg">
+    </ion-avatar>
+    <h2 style="margin-left: 10px">Blooapp</h2>
+  </div>
+
+  
+
+ 
+
+  
+  
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+  
+
+
+
