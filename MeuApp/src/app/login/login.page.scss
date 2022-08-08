@@ -13,6 +13,14 @@ ion-content{
   --background: #f5f5f3;
 
 
+  input{
+    font-size:18px ;
+    --padding-top:20px;
+    --padding-bottom:15px;
+    --padding-start:5px;
+  color: rgb(98, 98, 98);
+  }
+
   #header{
     display: flex;
     flex-direction: column;
