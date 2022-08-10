@@ -1,41 +1,33 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
-<ion-buttons slot="start">
-  <ion-button color="primary">
-    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-  </ion-button>
-</ion-buttons>
-
-<ion-back-button color="light" text="" [routerLink]="['/contacts']"></ion-back-button>
-
-<ion-buttons slot="end">
-  <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button>
-</ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>BLOOD DONOR</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<div id="header">
-
-  <h1>Blood App</h1>
-  <img src="assets/img/blood.jpeg">
-
-
-</div>
-
-
-
-<form id="form">
-
-  <input class="input"  [(ngModel)]="email" name="something" type="email" placeholder="Email" >
-  <!-- <input  [(ngModel)]="email" name="something" type="email" placeholder="Email" > -->
-  <input class="input" [(ngModel)]="password" name="something" type="password" placeholder="Pass" >
-  <!-- <app-input type="Password" placeholder="Password" [(ngModel)]="pass"></app-input> -->
-  <ion-button type="submit" (click)="login()">Entrar</ion-button>
-<!-- <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active"  expand="block" shape="round">Entrar</ion-button> -->
-
-</form>
-
-
-
+<ion-content class="ion-padding">
+  <div id="header">
+    <ion-img src="assets/img/blood.jpeg"></ion-img>
+  </div>
+  <form id="form" [formGroup]="credentials" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> O email inserrido nao esta no formato correto</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors?.required"> Senha é obrigatória</ion-note>
+    </ion-item>
+    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Entrar</ion-button>
+  </form>
+  <!-- <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button> -->
 </ion-content>
