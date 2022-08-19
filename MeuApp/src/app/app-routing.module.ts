@@ -28,7 +28,11 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },  {
+    path: 'resetpass',
+    loadChildren: () => import('./resetpass/resetpass.module').then( m => m.ResetpassPageModule)
   },
+
 
 ];
 
