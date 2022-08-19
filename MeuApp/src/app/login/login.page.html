@@ -27,6 +27,7 @@
       <ion-input type="password" formControlName="password"></ion-input>
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors?.required"> Senha é obrigatória</ion-note>
     </ion-item>
+    <ion-label class="ion-reset-password" [routerLink]="['/resetpass']" color="primary">Esqueceu a senha?</ion-label>
     <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Entrar</ion-button>
   </form>
   <!-- <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button> -->
