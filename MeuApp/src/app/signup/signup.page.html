@@ -1,35 +1,31 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
-<ion-buttons slot="start">
-  <ion-button color="primary">
-    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-  </ion-button>
-</ion-buttons>
-
-<ion-buttons slot="end">
-  <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active">Entrar</ion-button>
-</ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>BLOOD DONOR</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <h1>Criar usuário</h1>
-  <!-- <img src="assets/logo.png"> -->
-
-
-
-
-
-
-<form id="form">
-  <app-input placeholder="Seu nome"></app-input>
-
-  <app-input placeholder="Email"></app-input>
-  <app-input type="Password" placeholder="Password"></app-input>
-<ion-button [routerLink]="['/home']" routerLinkActive="router-link-active"   expand="block" shape="round">Registar</ion-button>
-
-</form>
-
-<p>Todos direitos reservados<br><strong>Blá Blá Blá Blá</strong></p>
+<ion-content class="ion-padding">
+  <div id="header">
+    <h1>Criar usuário</h1>
+    <img src="assets/img/blood.jpeg">
+  </div>
+  <form id="form" [formGroup]="credentials" (ngSubmit)="signUp()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> O email inserrido nao esta no formato correto</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors?.required"> Senha é obrigatória</ion-note>
+    </ion-item>
+    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Criar Conta</ion-button>
+  </form>
+  <!-- <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button> -->
 </ion-content>

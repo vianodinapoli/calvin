@@ -1,6 +1,3 @@
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';

@@ -21,6 +21,15 @@ export class SignupPage implements OnInit {
     private router: Router,
   ) { }
 
+  // Easy acces to form fields
+  get email(){
+    return this.credentials.get('email');
+  }
+
+  get password(){
+    return this.credentials.get('password');
+  }
+
   ngOnInit() {
     this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
