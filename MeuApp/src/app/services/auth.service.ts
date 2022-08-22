@@ -42,7 +42,7 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  async resetPassword(email: string) {
+  async resetPassword({email}) {
     try{
       const result = await sendPasswordResetEmail(
         this.auth,
