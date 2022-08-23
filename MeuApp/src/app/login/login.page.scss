@@ -1,3 +1,9 @@
+*{
+  font-family: 'Roboto', sans-serif;
+
+}
+
+
 ion-toolbar{
   --background: #f5f5f3;
 
@@ -44,9 +50,7 @@ ion-content{
 
 
   #form{
-    margin-top: 15%;
-    padding-left: 30px;
-    padding-right: 30px ;
+
 
     ion-button{
       margin-top:35px ;
@@ -58,6 +62,18 @@ ion-content{
       --box-shadow:none;
 
 
+    }
+
+    ion-item{
+      border-radius: 50px;
+      margin-bottom: 15px;
+      box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.07) ;
+
+    }
+
+    ion-note{
+      color: #eb445a;
+      font-size: 14px;
     }
   }
 
