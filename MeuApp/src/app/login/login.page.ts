@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
       this.router.navigateByUrl('/home', { replaceUrl: true });
 
     }else{
-      this.showAlert('Login falfou', 'Email ou Senha invalidos');
+      this.showAlert('Login falhou', 'Email ou Senha invalidos');
     }
   }
 
