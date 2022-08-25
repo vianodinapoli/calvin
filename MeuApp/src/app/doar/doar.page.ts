@@ -25,11 +25,11 @@ export class DoarPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    // private loadingCtrl: LoadingController,
+    private loadingCtrl: LoadingController,
     // private authService: AuthService,
-    // private alertCtrl: AlertController,
-    // private router: Router,
-    private doar: DoarService,
+    private alertCtrl: AlertController,
+    private router: Router,
+    private doarService: DoarService,
     private firestore: Firestore,
     private auth: Auth
   ) {
@@ -42,7 +42,7 @@ export class DoarPage implements OnInit {
     //   console.log('SEM ID',res);
     // })
 
-    this.doar.lerDoarById(user.uid).subscribe(res =>{
+    this.doarService.lerDoarById(user.uid).subscribe(res =>{
       console.log('COM ID',res);
     })
   }
@@ -69,7 +69,42 @@ export class DoarPage implements OnInit {
   }
 
   async addDoar(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
 
+    const user = this.auth.currentUser;
+    const adoar = await this.doarService.addDoar(user.uid, this.credentials.value)
+    await loading.dismiss();
+
+    if(user){
+
+      this.router.navigateByUrl('/home', { replaceUrl: true });
+
+    }else{
+      this.showAlert('A submissao falhou', 'Talvez ja tenhas uma submissao enviada');
+    }
+    // const user = this.auth.currentUser;
+    // console.log('Credentials', this.credentials.value, 'Logged User Id',user.uid);
+    // try {
+    //   const docRef = doc(this.firestore, 'Doar', 'Doar/${user}').doc(user.uid).set(this.credentials);
+    // //   return collection(docRef);
+    //   // const docSnap = await getDocs(docRef);
+      // await this.firestore.collection('Doar').doc(user.uid).set(this.credentials);
+
+    // } catch (error) {
+    //   console.error(error);
+
+    // }
+
+  }
+
+
+  showAlert(header: string, message: string) {
+    this.alertCtrl.create({
+      header,
+      message,
+      buttons: ['OK']
+    }).then(alert => alert.present());
   }
 
 }
