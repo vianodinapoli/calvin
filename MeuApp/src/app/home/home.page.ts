@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth.service'
 import { Auth } from '@angular/fire/auth';
 import { DoarService } from './../services/doar.service';
 import { Firestore, collection, getDocs, docData, doc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 // import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -13,6 +14,8 @@ import { Firestore, collection, getDocs, docData, doc } from '@angular/fire/fire
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  dados = [];
 
   constructor(
     // private fb: FormBuilder,
@@ -26,16 +29,15 @@ export class HomePage {
 
     ) {
       const user = this.auth.currentUser;
-      // this.doar.lerDoar().subscribe(res =>{
-      //   // const user = this.auth.currentUser;
-
-      //   // if(user.uid ==)
-      //   console.log(res);
-      // })
 
       this.doar.lerDoarById(user.uid).subscribe(res =>{
         console.log('COM ID',res);
+        this.dados = res;
+        console.log('Variavel', res.fullname);
+
       })
+
+
     }
 
     async logout(){

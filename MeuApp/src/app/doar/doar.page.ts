@@ -44,6 +44,7 @@ export class DoarPage implements OnInit {
 
     this.doarService.lerDoarById(user.uid).subscribe(res =>{
       console.log('COM ID',res);
+
     })
   }
 
@@ -83,18 +84,6 @@ export class DoarPage implements OnInit {
     }else{
       this.showAlert('A submissao falhou', 'Talvez ja tenhas uma submissao enviada');
     }
-    // const user = this.auth.currentUser;
-    // console.log('Credentials', this.credentials.value, 'Logged User Id',user.uid);
-    // try {
-    //   const docRef = doc(this.firestore, 'Doar', 'Doar/${user}').doc(user.uid).set(this.credentials);
-    // //   return collection(docRef);
-    //   // const docSnap = await getDocs(docRef);
-      // await this.firestore.collection('Doar').doc(user.uid).set(this.credentials);
-
-    // } catch (error) {
-    //   console.error(error);
-
-    // }
 
   }
 
