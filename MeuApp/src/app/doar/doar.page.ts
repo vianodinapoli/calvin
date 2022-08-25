@@ -45,7 +45,7 @@ export class DoarPage implements OnInit {
     this.doarService.lerDoarById(user.uid).subscribe(res =>{
       console.log('COM ID',res);
 
-    })
+    });
   }
 
 
@@ -74,7 +74,7 @@ export class DoarPage implements OnInit {
     await loading.present();
 
     const user = this.auth.currentUser;
-    const adoar = await this.doarService.addDoar(user.uid, this.credentials.value)
+    const adoar = await this.doarService.addDoar(user.uid, this.credentials.value);
     await loading.dismiss();
 
     if(user){
