@@ -26,21 +26,15 @@ export class DoarPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loadingCtrl: LoadingController,
-    // private authService: AuthService,
     private alertCtrl: AlertController,
     private router: Router,
     private doarService: DoarService,
-    private firestore: Firestore,
     private auth: Auth
   ) {
     // this.doar.lerDoar().subscribe(data =>{
     //   this.profile = data;
     // });
     const user = this.auth.currentUser;
-
-    // this.doar.lerDoar().subscribe(res =>{
-    //   console.log('SEM ID',res);
-    // })
 
     this.doarService.lerDoarById(user.uid).subscribe(res =>{
       console.log('COM ID',res);

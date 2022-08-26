@@ -5,7 +5,10 @@ import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, s
 import { Observable } from 'rxjs';
 
 
-
+export interface Dados{
+  residence: string;
+  bloodytype: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -32,14 +35,14 @@ export class DoarService {
 
     // }
 
-    lerDoarById(id){
+    lerDoarById(id): Observable<Dados>{
       const doarRef = doc(this.firestore, `Doar/${id}`);
-      return docData(doarRef, {idField: 'id'});
+      return docData(doarRef, {idField: 'id'}) as Observable<Dados>;
     }
 
     addDoar(id: string, doaradd){
       const docRefAdd = collection(this.firestore, 'Doar');
-      return setDoc(doc(docRefAdd, id), doaradd)
+      return setDoc(doc(docRefAdd, id), doaradd);
       // return addDoc(docRefAdd, doaradd);
     }
 

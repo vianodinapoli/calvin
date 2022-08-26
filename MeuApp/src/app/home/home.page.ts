@@ -4,9 +4,6 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service'
 import { Auth } from '@angular/fire/auth';
 import { DoarService } from './../services/doar.service';
-import { Firestore, collection, getDocs, docData, doc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-// import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -14,29 +11,22 @@ import { Observable } from 'rxjs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  dados = [];
+  //Para poder armazenar os dados que vem do FIreStore num array
+  datas = null;
 
   constructor(
-    // private fb: FormBuilder,
-    // private loadingCtrl: LoadingController,
     private authService: AuthService,
-    // private alertCtrl: AlertController,
     private router: Router,
     private doar: DoarService,
-    // private firestore: Firestore,
     private auth: Auth
 
     ) {
       const user = this.auth.currentUser;
-
-      this.doar.lerDoarById(user.uid).subscribe(res =>{
+      this.doar.lerDoarById(user.uid).subscribe((res) =>{
         console.log('COM ID',res);
-        this.dados = res;
-        console.log('Variavel', res.fullname);
-
+        this.datas = res;
+        console.log('Variavel', this.datas);
       })
-
 
     }
 
