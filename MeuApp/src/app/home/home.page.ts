@@ -4,6 +4,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service'
 import { Auth } from '@angular/fire/auth';
 import { DoarService } from './../services/doar.service';
+import { RbloodyService } from '../services/rbloody.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,13 @@ import { DoarService } from './../services/doar.service';
 export class HomePage {
   //Para poder armazenar os dados que vem do FIreStore num array
   datas = null;
+  rdatas = null;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private doar: DoarService,
+    private requerer: RbloodyService,
     private auth: Auth
 
     ) {
@@ -26,6 +29,12 @@ export class HomePage {
         console.log('COM ID',res);
         this.datas = res;
         console.log('Variavel', this.datas);
+      })
+
+      this.requerer.lerDadosById(user.uid).subscribe((res) =>{
+        console.log('Requer COM ID',res);
+        this.rdatas = res;
+        console.log('Requer Variavel', this.rdatas);
       })
 
     }

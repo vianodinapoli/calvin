@@ -39,7 +39,7 @@
 <H3>REQUERER SANGUE</H3>
 <hr>
 <span>
-<H6 class="infoone">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon>
+<H6 class="infoone" [routerLink]="['/rbloody']">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon>
 </H6>
 </span>
 
@@ -52,7 +52,11 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
+ <ion-label>
+  <h4>
+    Dados de Doação
+  </h4>
+ </ion-label>
   <form id="form">
     <ion-item >
       <ion-label>Nome Completo</ion-label>
@@ -77,6 +81,38 @@
       <ion-label>Contact</ion-label>
       <ion-label>
         {{datas?.contact}}
+      </ion-label>
+    </ion-item>
+  </form>
+  <ion-label>
+    <h3>
+      Dados de Requisiçao
+    </h3>
+  </ion-label>
+  <form id="form">
+    <ion-item >
+      <ion-label>Nome Completo</ion-label>
+      <ion-label>
+        {{rdatas?.fullname}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Residencia</ion-label>
+      <ion-label>
+        {{rdatas?.residence}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tippo Sanguíneo</ion-label>
+      <ion-label>
+        {{rdatas?.bloodytype}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contact</ion-label>
+      <ion-label>
+        {{rdatas?.contact}}
       </ion-label>
     </ion-item>
   </form>

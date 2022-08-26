@@ -36,6 +36,10 @@ const routes: Routes = [
     path: 'doar',
     loadChildren: () => import('./doar/doar.module').then( m => m.DoarPageModule)
   },
+  {
+    path: 'rbloody',
+    loadChildren: () => import('./rbloody/rbloody.module').then( m => m.RbloodyPageModule)
+  },
 
 
 ];

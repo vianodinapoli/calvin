@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>rbloody</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form id="form" [formGroup]="credentials" (ngSubmit)="addDados()">
+
+    <ion-item>
+      <ion-label position="floating">Nome Completo</ion-label>
+      <ion-input type="text" formControlName="fullname"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="bloodytype" placeholder="Tipo Sanguíneo" >
+          <ion-select-option value="a">A</ion-select-option>
+          <ion-select-option value="b">B</ion-select-option>
+          <ion-select-option value="o">O</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item>
+      <ion-label position="floating">Residencia</ion-label>
+      <ion-input type="text" formControlName="residence"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Celular/Telefone</ion-label>
+      <ion-input type="text" formControlName="contact"></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Submeter Formulario</ion-button>
+
+  </form>
+
+</ion-content>
