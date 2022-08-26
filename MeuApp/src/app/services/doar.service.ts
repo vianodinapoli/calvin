@@ -1,5 +1,4 @@
 import { Doar } from './../interfaces/doar';
-import { Auth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -13,11 +12,7 @@ export interface Dados{
   providedIn: 'root'
 })
 export class DoarService {
-
-  // private doarCollection = this.
-
   constructor(
-    // private auth: Auth,
     private firestore: Firestore
     ) { }
 
@@ -43,7 +38,6 @@ export class DoarService {
     addDoar(id: string, doaradd){
       const docRefAdd = collection(this.firestore, 'Doar');
       return setDoc(doc(docRefAdd, id), doaradd);
-      // return addDoc(docRefAdd, doaradd);
     }
 
     updateDoar(id: string, doar: Doar){}
