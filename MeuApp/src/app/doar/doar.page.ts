@@ -55,11 +55,16 @@ export class DoarPage implements OnInit {
     return this.credentials.get('residence');
   }
 
+  get contact(){
+    return this.credentials.get('contact');
+  }
+
   ngOnInit() {
     this.credentials = this.fb.group({
       fullname: ['', Validators.required],
       bloodytype: ['', Validators.required],
       residence: ['', Validators.required],
+      contact: ['', Validators.required],
     });
   }
 
