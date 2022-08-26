@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>resetpass</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>BLOOD DONOR</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div id="header">
+    <img src="assets/img/blood.jpeg">
+    <h5>Recuperar Senha</h5>
+  </div>
+  <form id="form" [formGroup]="credentials" (ngSubmit)="resetpass()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> O email inserrido nao esta no formato correto</ion-note>
+    </ion-item>
+    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Submeter</ion-button>
+
+  </form>
+  <ion-label class="ion-reset-password" [routerLink]="['/signup']" color="primary">Criar Conta?</ion-label>
 
 </ion-content>
+

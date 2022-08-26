@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from '@angular/fire/auth';
 import { signOut } from 'firebase/auth';
 
 @Injectable({
@@ -40,6 +40,18 @@ export class AuthService {
 
   logout(){
     return signOut(this.auth);
+  }
+
+  async resetPassword({email}) {
+    try{
+      const result = await sendPasswordResetEmail(
+        this.auth,
+        email
+      );
+
+    }catch(e){
+      return null;
+    }
   }
 
 

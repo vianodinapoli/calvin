@@ -4,18 +4,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ResetpassPageRoutingModule } from './resetpass-routing.module';
+import { DoarPageRoutingModule } from './doar-routing.module';
 
-import { ResetpassPage } from './resetpass.page';
+import { DoarPage } from './doar.page';
+import { InputModule } from '../input/input.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ResetpassPageRoutingModule,
+    DoarPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ResetpassPage]
+  declarations: [DoarPage]
 })
-export class ResetpassPageModule {}
+export class DoarPageModule {}

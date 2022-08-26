@@ -31,7 +31,7 @@
 <h1>DOAR SANGUE</h1>
 <hr>
 <span>
-<H6 class="infoone">Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon>
+<H6 class="infoone" [routerLink]="['/doar']" >Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon>
 </H6>
 </span>
   </div>
@@ -47,17 +47,35 @@
 </div>
 
 
-
-
-
-
-
-
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <form id="form">
+    <ion-item >
+      <ion-label>Nome Completo</ion-label>
+      <ion-label>
+        {{datas?.fullname}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Residencia</ion-label>
+      <ion-label>
+        {{datas?.residence}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tippo Sanguíneo</ion-label>
+      <ion-label>
+        {{datas?.bloodytype}}
+      </ion-label>
+    </ion-item>
+  </form>
+
+
+
 </ion-content>
 
 
