@@ -1,0 +1,19 @@
+.chips{
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  padding-top: 50px;
+
+}
+
+
+#form{
+  .button{
+    width: 55%;
+    margin: auto;
+  }
+
+  ion-input{
+    color: grey;
+  }
+}
