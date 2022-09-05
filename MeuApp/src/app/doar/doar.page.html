@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
  <ion-buttons slot="start">
-      <ion-button color="primary" [routerLink]="['/home']" routerLinkActive="router-link-active"
+      <ion-button color="" [routerLink]="['/home']" routerLinkActive="router-link-active"
         id="trigger-button">
         <ion-icon name="chevron-back-outline"></ion-icon>      </ion-button>
     </ion-buttons>
@@ -13,14 +13,14 @@
 
   <form id="form" [formGroup]="credentials" (ngSubmit)="addDoar()">
 <div class="chips">
-    <ion-chip  color="danger">
+    <ion-chip  color="">
       <ion-label ></ion-label>
       <ion-input placeholder="Nome Completo" type="text" formControlName="fullname"></ion-input>
     </ion-chip>
 
 
     <ion-list>
-      <ion-chip color="danger">
+      <ion-chip color="">
         <ion-select formControlName="bloodytype" placeholder="Tipo Sanguíneo" >
           <ion-select-option value="a">A</ion-select-option>
           <ion-select-option value="b">B</ion-select-option>
@@ -29,12 +29,12 @@
       </ion-chip>
     </ion-list>
 
-    <ion-chip color="danger">
+    <ion-chip color="">
       <ion-label ></ion-label>
       <ion-input placeholder="Residencia" type="text" formControlName="residence"></ion-input>
     </ion-chip>
 
-    <ion-chip color="danger">
+    <ion-chip color="">
       <ion-label ></ion-label>
       <ion-input placeholder="Celular/Telefone"  type="text" formControlName="contact"></ion-input>
     </ion-chip>
