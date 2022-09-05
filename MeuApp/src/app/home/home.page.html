@@ -1,21 +1,6 @@
 <ion-content appUi [scrollEvents]="true" [fullscreen]="true">
   <div class="control ion-padding">
-    <ion-buttons slot="start">
-      <ion-button color="dark" routerLinkActive="router-link-active"
-        id="trigger-button">
-        <ion-icon name="list"></ion-icon>      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="start">
-      <ion-button color="dark" routerLinkActive="router-link-active"
-        id="trigger-button">
-        <ion-icon slot="end" name="notifications"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="start">
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+
   </div>
 
   <div class="header ion-padding ion-margin-top" style="display: flex; align-items: center">
@@ -47,6 +32,61 @@
 </div>
 
 
+<div class="list" >
+<div class="info">
+    <ion-item-sliding class=" customitem">
+      <ion-item lines="none" >
+        <ion-avatar  slot="start">
+      <img src="assets/img/blood.jpeg">
+        </ion-avatar>
+        <ion-label>
+          <h3 style="color: #5592d9">Soleia Geraldo</h3>
+          <p>Matacuane</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+
+      </ion-item>
+      <ion-item-options [side]="right">
+        <ion-item-option >
+          <ion-icon name="pencil"></ion-icon>
+          Editar
+        </ion-item-option>
+        <ion-item-option color="danger" >
+          <ion-icon name="trash"></ion-icon>
+          Apagar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+<br>
+
+  <div class="info">
+
+    <ion-item-sliding class=" customitem">
+      <ion-item lines="none" >
+        <ion-avatar  slot="start">
+      <img src="assets/img/blood.jpeg">
+        </ion-avatar>
+        <ion-label>
+          <h3 style="color: #5592d9">Adilson Supinho</h3>
+          <p>Macuti</p>
+        </ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+
+      </ion-item>
+      <ion-item-options [side]="right">
+        <ion-item-option >
+          <ion-icon name="pencil"></ion-icon>
+          Editar
+        </ion-item-option>
+        <ion-item-option color="danger" >
+          <ion-icon name="trash"></ion-icon>
+          Apagar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+  </div>
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -54,73 +94,6 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
- <ion-label>
-  <h4>
-    Dados de Doação
-  </h4>
- </ion-label>
-  <form id="form">
-    <ion-item >
-      <ion-label>Nome Completo</ion-label>
-      <ion-label>
-        {{datas?.fullname}}
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Residencia</ion-label>
-      <ion-label>
-        {{datas?.residence}}
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Tippo Sanguíneo</ion-label>
-      <ion-label>
-        {{datas?.bloodytype}}
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Contact</ion-label>
-      <ion-label>
-        {{datas?.contact}}
-      </ion-label>
-    </ion-item>
-  </form>
-  <ion-label>
-    <h3>
-      Dados de Requisiçao
-    </h3>
-  </ion-label>
-  <form id="form">
-    <ion-item >
-      <ion-label>Nome Completo</ion-label>
-      <ion-label>
-        {{rdatas?.fullname}}
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Residencia</ion-label>
-      <ion-label>
-        {{rdatas?.residence}}
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Tippo Sanguíneo</ion-label>
-      <ion-label>
-        {{rdatas?.bloodytype}}
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Contact</ion-label>
-      <ion-label>
-        {{rdatas?.contact}}
-      </ion-label>
-    </ion-item>
-  </form>
-
-
-
 </ion-content>
 
 
