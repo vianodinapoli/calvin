@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+ <ion-buttons slot="start">
+      <ion-button color="primary" [routerLink]="['/home']" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon name="chevron-back-outline"></ion-icon>      </ion-button>
+    </ion-buttons>
+    <ion-title>Doar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form id="form" [formGroup]="credentials" (ngSubmit)="addDoar()">
+<div class="chips">
+    <ion-chip  color="danger">
+      <ion-label ></ion-label>
+      <ion-input placeholder="Nome Completo" type="text" formControlName="fullname"></ion-input>
+    </ion-chip>
+
+
+    <ion-list>
+      <ion-chip color="danger">
+        <ion-select formControlName="bloodytype" placeholder="Tipo Sanguíneo" >
+          <ion-select-option value="a">A</ion-select-option>
+          <ion-select-option value="b">B</ion-select-option>
+          <ion-select-option value="o">O</ion-select-option>
+        </ion-select>
+      </ion-chip>
+    </ion-list>
+
+    <ion-chip color="danger">
+      <ion-label ></ion-label>
+      <ion-input placeholder="Residencia" type="text" formControlName="residence"></ion-input>
+    </ion-chip>
+
+    <ion-chip color="danger">
+      <ion-label ></ion-label>
+      <ion-input placeholder="Celular/Telefone"  type="text" formControlName="contact"></ion-input>
+    </ion-chip>
+</div>
+    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Submeter Formulário</ion-button>
+
+  </form>
+
+</ion-content>

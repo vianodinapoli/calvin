@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" [routerLink]="['/login']">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>BLOOD DONOR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div id="header">
+    <h2>Criar usuário</h2>
+    <img src="assets/img/blood.jpeg">
+  </div>
+  <form id="form" [formGroup]="credentials" (ngSubmit)="signUp()">
+    <ion-item lines="none">
+      <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
+    </ion-item>
+          <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> O email inserrido nao esta no formato correto</ion-note>
+      <br>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors?.required"> Senha é obrigatória</ion-note>
+
+    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Criar Conta</ion-button>
+  </form>
+  <!-- <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button> -->
+</ion-content>

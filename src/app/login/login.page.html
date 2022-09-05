@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+<ion-buttons slot="start">
+  <ion-button color="primary">
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+  </ion-button>
+</ion-buttons>
+
+<ion-back-button color="light" text="" [routerLink]="['/contacts']"></ion-back-button>
+
+<ion-buttons slot="end">
+  <ion-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  >Criar conta</ion-button>
+</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div id="header">
+
+  <h1>Blood App</h1>
+  <img src="assets/img/blood.jpeg">
+
+
+</div>
+
+
+
+<form id="form">
+
+  <app-input type="email" placeholder="Email" ></app-input>
+  <app-input type="Password" placeholder="Password"></app-input>
+<ion-button [routerLink]="['/home']" routerLinkActive="router-link-active"  expand="block" shape="round">Entrar</ion-button>
+
+</form>
+
+
+
+</ion-content>

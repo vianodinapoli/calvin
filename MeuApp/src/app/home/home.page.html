@@ -1,20 +1,128 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content appUi [scrollEvents]="true" [fullscreen]="true">
+  <div class="control ion-padding">
+    <ion-buttons slot="start">
+      <ion-button color="dark" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon name="list"></ion-icon>      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button color="dark" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon slot="end" name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </div>
+
+  <div class="header ion-padding ion-margin-top" style="display: flex; align-items: center">
+    <ion-avatar class="ion-margin-start">
+      <img src="assets/img/blood.jpeg">
+    </ion-avatar>
+    <h2 style="margin-left: 10px">Blooapp</h2>
+  </div>
+
+
+  <div class="conteudo">
+  <div class="card">
+<h1>DOAR SANGUE</h1>
+<hr>
+<span>
+<H6 class="infoone" [routerLink]="['/doar']" >Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon>
+</H6>
+</span>
+  </div>
+   <div class="card">
+<H3>REQUERER SANGUE</H3>
+<hr>
+<span>
+<H6 class="infoone" [routerLink]="['/rbloody']">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon>
+</H6>
+</span>
+
+  </div>
+</div>
+
+
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ <ion-label>
+  <h4>
+    Dados de Doação
+  </h4>
+ </ion-label>
+  <form id="form">
+    <ion-item >
+      <ion-label>Nome Completo</ion-label>
+      <ion-label>
+        {{datas?.fullname}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Residencia</ion-label>
+      <ion-label>
+        {{datas?.residence}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tippo Sanguíneo</ion-label>
+      <ion-label>
+        {{datas?.bloodytype}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contact</ion-label>
+      <ion-label>
+        {{datas?.contact}}
+      </ion-label>
+    </ion-item>
+  </form>
+  <ion-label>
+    <h3>
+      Dados de Requisiçao
+    </h3>
+  </ion-label>
+  <form id="form">
+    <ion-item >
+      <ion-label>Nome Completo</ion-label>
+      <ion-label>
+        {{rdatas?.fullname}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Residencia</ion-label>
+      <ion-label>
+        {{rdatas?.residence}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tippo Sanguíneo</ion-label>
+      <ion-label>
+        {{rdatas?.bloodytype}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contact</ion-label>
+      <ion-label>
+        {{rdatas?.contact}}
+      </ion-label>
+    </ion-item>
+  </form>
+
+
+
 </ion-content>
+
+
+
+
