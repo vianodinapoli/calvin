@@ -40,6 +40,14 @@ const routes: Routes = [
     path: 'rbloody',
     loadChildren: () => import('./rbloody/rbloody.module').then( m => m.RbloodyPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then( m => m.FormPageModule)
+  },
 
 
 ];

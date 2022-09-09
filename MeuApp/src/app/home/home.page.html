@@ -1,6 +1,8 @@
 <ion-content appUi [scrollEvents]="true" [fullscreen]="true">
   <div class="control ion-padding">
-
+    <!-- <ion-avatar>
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
+    </ion-avatar> -->
   </div>
 
   <div class="header ion-padding ion-margin-top" style="display: flex; align-items: center">
@@ -12,24 +14,28 @@
 
 
   <div class="conteudo">
-  <div class="card">
-<h1>DOAR SANGUE</h1>
-<hr>
-<span>
-<H6 class="infoone" [routerLink]="['/doar']" >Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon>
-</H6>
-</span>
+    <div class="card">
+      <h1>Meus Dados</h1>
+      <hr>
+      <span>
+        <H6 class="infoone" [routerLink]="['/perfil']" >Ver/Preencher formulario<ion-icon name="chevron-forward-outline"></ion-icon></H6>
+      </span>
+    </div>
+    <div class="card">
+        <h1>DOAR SANGUE</h1>
+        <hr>
+        <span>
+          <H6 class="infoone" [routerLink]="['/doar']" >Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
+        </span>
+    </div>
+    <div class="card">
+      <H3>REQUERER SANGUE</H3>
+      <hr>
+      <span>
+        <H6 class="infoone" [routerLink]="['/rbloody']">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
+      </span>
+    </div>
   </div>
-   <div class="card">
-<H3>REQUERER SANGUE</H3>
-<hr>
-<span>
-<H6 class="infoone" [routerLink]="['/rbloody']">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon>
-</H6>
-</span>
-
-  </div>
-</div>
 
 
 <div class="list" >
@@ -42,8 +48,8 @@
       <img src="assets/img/blood.jpeg">
         </ion-avatar>
         <ion-label>
-          <h3 style="color: #5592d9">Soleia Geraldo</h3>
-          <p>Matacuane</p>
+          <h3 style="color: #5592d9">{{datas?.fullname}}</h3>
+          <p>{{datas?.residence}}</p>
         </ion-label>
         <ion-icon name="chevron-forward-outline"></ion-icon>
 
@@ -70,8 +76,8 @@
       <img src="assets/img/blood.jpeg">
         </ion-avatar>
         <ion-label>
-          <h3 style="color: #5592d9">Adilson Supinho</h3>
-          <p>Macuti</p>
+          <h3 style="color: #5592d9">{{rdatas?.fullname}}</h3>
+          <p>{{rdatas?.residence}}</p>
         </ion-label>
                 <ion-icon name="chevron-forward-outline"></ion-icon>
 

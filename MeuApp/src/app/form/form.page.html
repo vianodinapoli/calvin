@@ -1,17 +1,12 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
- <ion-buttons slot="start">
-      <ion-button color="primary" [routerLink]="['/home']" routerLinkActive="router-link-active"
-        id="trigger-button">
-        <ion-icon name="chevron-back-outline"></ion-icon>      </ion-button>
-    </ion-buttons>
-    <ion-title>Doar</ion-title>
+    <ion-title>Dados do Usuário</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <form id="form" [formGroup]="credentials" (ngSubmit)="addDoar()">
+  <form id="form" [formGroup]="credentials" (ngSubmit)="addPerfil()">
     <div class="chips">
       <ion-chip  color="danger">
         <ion-label ></ion-label>
