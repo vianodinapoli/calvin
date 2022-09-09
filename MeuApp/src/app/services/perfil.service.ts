@@ -3,7 +3,7 @@ import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, s
 import { Observable } from 'rxjs';
 
 export interface Dados{
-  id: string;
+  id?: string;
   fullname: string;
   residence: string;
   bloodytype: string;
@@ -32,8 +32,8 @@ export class PerfilService {
     return deleteDoc(dadosDocRef);
   }
 
-  updatePerfil(dados) {
-    const dadosDocRef = doc(this.firestore, `perfil/${dados}`);
+  updatePerfil(dados: Dados) {
+    const dadosDocRef = doc(this.firestore, `perfil/${dados.id}`);
     return updateDoc(dadosDocRef, { title: dados.fullname, text: dados.contact, string: dados.bloodytype });
   }
 }

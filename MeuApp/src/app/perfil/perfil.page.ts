@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service'
 import { Auth } from '@angular/fire/auth';
-import { PerfilService } from './../services/perfil.service';
+import { Dados, PerfilService } from './../services/perfil.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class PerfilPage implements OnInit {
   datas = null;
+
+  @Input() id: string;
+  dados: Dados = null;
+
   ver: boolean = false;
   isModalOpen = false;
   credentials: FormGroup;
@@ -63,10 +67,15 @@ export class PerfilPage implements OnInit {
       residence: ['', Validators.required],
       contact: ['', Validators.required],
     });
+
+    this.perfil.lerPerfilById(this.id).subscribe(res => {
+      this.dados = res;
+      console.log('DADOS AO EDITAR', this.dados)
+    });
   }
 
 
   async updatePerfil() {
-    await this.perfil.updatePerfil(this.credentials.value);
+    await this.perfil.updatePerfil(this.dados);
   }
 }
