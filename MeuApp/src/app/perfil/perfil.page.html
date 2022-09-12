@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons *ngIf="ver" slot="primary" [routerLink]="['/form']">
+    <ion-buttons *ngIf="!ver" slot="primary" [routerLink]="['/form']">
       <ion-button color="secondary">
         <ion-icon name="add-outline"> </ion-icon>
       </ion-button>
@@ -31,7 +31,6 @@
   </div>
 
   <!-- Modal -->
-  <ion-button expand="block" (click)="setOpen(true)">Open</ion-button>
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-header>
