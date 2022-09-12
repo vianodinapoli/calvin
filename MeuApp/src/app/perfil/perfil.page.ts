@@ -75,7 +75,9 @@ export class PerfilPage implements OnInit {
   }
 
 
-  async updatePerfil() {
-    await this.perfil.updatePerfil(this.dados);
+  async updatePerfil(id) {
+    const user = this.auth.currentUser;
+    await this.perfil.updatePerfil(user.uid, this.credentials.value);
+
   }
 }

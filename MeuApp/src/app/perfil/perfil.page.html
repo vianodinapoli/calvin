@@ -44,11 +44,11 @@
       </ion-header>
       <ion-content class="ion-padding">
 
-        <form id="form" [formGroup]="credentials" (ngSubmit)="updatePerfil()">
+        <form id="form" [formGroup]="credentials" (ngSubmit)="updatePerfil(datas?.id)">
           <div class="chips">
             <ion-chip  color="danger">
               <ion-label ></ion-label>
-              <ion-input placeholder={{datas?.fullname}} type="text" formControlName="fullname" [(ngModel)]="residences.fullname"></ion-input>
+              <ion-input type="text" formControlName="fullname" [(ngModel)]="residences.fullname"></ion-input>
             </ion-chip>
             <ion-list>
               <ion-chip color="danger">

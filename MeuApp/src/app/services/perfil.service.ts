@@ -32,8 +32,8 @@ export class PerfilService {
     return deleteDoc(dadosDocRef);
   }
 
-  updatePerfil(dados: Dados) {
-    const dadosDocRef = doc(this.firestore, `perfil/${dados.id}`);
-    return updateDoc(dadosDocRef, { title: dados.fullname, text: dados.contact, string: dados.bloodytype });
+  updatePerfil(id, dados) {
+    const dadosDocRef = doc(this.firestore, `perfil/${id}`);
+    return updateDoc(dadosDocRef, dados);
   }
 }
