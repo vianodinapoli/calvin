@@ -14,6 +14,12 @@
   }
 
   ion-input{
-    color: grey;
+    color: #000;
   }
+
+  ion-chip{
+    background-color: white;
+    border: 0px solid;
+    box-shadow: 0 0px 0px rgb(116 115 115 / 16%), 0 1px 0px rgb(121 120 120 / 12%);
+}
 }
