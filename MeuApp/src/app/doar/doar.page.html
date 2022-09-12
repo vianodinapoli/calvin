@@ -14,10 +14,9 @@
   <form id="form" [formGroup]="credentials" (ngSubmit)="addDoar()">
     <div class="chips">
       <ion-chip  color="danger">
-        <ion-label ></ion-label>
-        <ion-input placeholder="Nome Completo" type="text" formControlName="fullname"></ion-input>
+        <ion-input formControlName="fullname">{{profile?.fullname}}</ion-input>
       </ion-chip>
-      <ion-list>
+      <!-- <ion-list>
         <ion-chip color="danger">
           <ion-select formControlName="bloodytype" placeholder="Tipo Sanguíneo" >
             <ion-select-option value="a">A</ion-select-option>
@@ -25,17 +24,18 @@
             <ion-select-option value="o">O</ion-select-option>
           </ion-select>
         </ion-chip>
-      </ion-list>
-      <ion-chip color="danger">
+      </ion-list> -->
+      <!-- <ion-chip color="danger">
         <ion-label ></ion-label>
         <ion-input placeholder="Residencia" type="text" formControlName="residence"></ion-input>
       </ion-chip>
       <ion-chip color="danger">
         <ion-label ></ion-label>
         <ion-input placeholder="Celular/Telefone"  type="text" formControlName="contact"></ion-input>
-      </ion-chip>
+      </ion-chip> -->
+      <ion-input formControlName="datarequi">{{today | date: 'dd/MM/yyyy'}}</ion-input>
     </div>
-    <ion-button [disabled]="!credentials.valid" expand="block" shape="round" type="submit">Submeter Formulário</ion-button>
+    <ion-button expand="block" shape="round" type="submit">Enviar Pedido</ion-button>
   </form>
 
 </ion-content>

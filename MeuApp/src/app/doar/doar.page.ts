@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Firestore, collection, getDocs, docData, doc } from '@angular/fire/firestore';
+import { PerfilService } from '../services/perfil.service';
 
 
 
@@ -18,6 +19,8 @@ import { Firestore, collection, getDocs, docData, doc } from '@angular/fire/fire
 })
 export class DoarPage implements OnInit {
   profile = null;
+  pro;
+  today;
   credentials: FormGroup;
 
 
@@ -29,17 +32,23 @@ export class DoarPage implements OnInit {
     private alertCtrl: AlertController,
     private router: Router,
     private doarService: DoarService,
-    private auth: Auth
+    private auth: Auth,
+    private perfil: PerfilService
   ) {
-    // this.doar.lerDoar().subscribe(data =>{
-    //   this.profile = data;
-    // });
     const user = this.auth.currentUser;
 
     this.doarService.lerDoarById(user.uid).subscribe(res =>{
       console.log('COM ID',res);
 
     });
+
+      this.perfil.lerPerfilById(user.uid).subscribe((res) =>{
+        this.profile = res;
+        console.log('Variavel', this.profile);
+        this.pro = this.profile;
+        console.log(this.pro.fullname);
+
+      });
   }
 
 
@@ -47,25 +56,18 @@ export class DoarPage implements OnInit {
     return this.credentials.get('fullname');
   }
 
-  get bloodytype(){
-    return this.credentials.get('bloodytype');
-  }
-
-  get residence(){
-    return this.credentials.get('residence');
-  }
-
-  get contact(){
-    return this.credentials.get('contact');
+  get datarequi(){
+    return this.credentials.get('datarequi');
   }
 
   ngOnInit() {
     this.credentials = this.fb.group({
       fullname: ['', Validators.required],
-      bloodytype: ['', Validators.required],
-      residence: ['', Validators.required],
-      contact: ['', Validators.required],
+      datarequi: ['', Validators.required],
     });
+    this.today = Date.now();
+    console.log(this.today);
+
   }
 
   async addDoar(){

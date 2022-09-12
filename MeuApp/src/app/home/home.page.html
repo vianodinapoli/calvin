@@ -25,23 +25,23 @@
         <h1>DOAR SANGUE</h1>
         <hr>
         <span>
-          <H6 class="infoone" [routerLink]="['/doar']" >Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
+          <H6 class="infoone" (click)="addRequiDoa()">Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
         </span>
     </div>
     <div class="card">
       <H3>REQUERER SANGUE</H3>
       <hr>
       <span>
-        <H6 class="infoone" [routerLink]="['/rbloody']">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
+        <H6 class="infoone" (click)="addRequiPedi()">Clicar para requerer sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
       </span>
     </div>
   </div>
 
 
 <div class="list" >
-<ion-label>Dados da requisição</ion-label>
-<hr>
-<div class="info">
+  <ion-label>Requisição de Doação</ion-label>
+  <hr>
+  <div class="info" *ngIf="ver">
     <ion-item-sliding class=" customitem">
       <ion-item lines="none" >
         <ion-avatar  slot="start">
@@ -49,27 +49,23 @@
         </ion-avatar>
         <ion-label>
           <h3 style="color: #5592d9">{{datas?.fullname}}</h3>
-          <p>{{datas?.residence}}</p>
+          <p>{{datas?.datarequi}}</p>
         </ion-label>
         <ion-icon name="chevron-forward-outline"></ion-icon>
 
       </ion-item>
       <ion-item-options [side]="right">
-        <ion-item-option >
-          <ion-icon name="pencil"></ion-icon>
-          Editar
-        </ion-item-option>
-        <ion-item-option color="danger" >
+        <ion-item-option color="danger" (click)="deleteDoar(datas?.id)">
           <ion-icon name="trash"></ion-icon>
           Apagar
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </div>
-<br>
-<ion-label>Dados da requisição</ion-label>
-<hr>
-  <div class="info">
+  <br>
+  <ion-label>Requisição de Pedido de Doação</ion-label>
+  <hr>
+  <div class="info" *ngIf="ver1">
     <ion-item-sliding class=" customitem">
       <ion-item lines="none" >
         <ion-avatar  slot="start">
@@ -77,24 +73,20 @@
         </ion-avatar>
         <ion-label>
           <h3 style="color: #5592d9">{{rdatas?.fullname}}</h3>
-          <p>{{rdatas?.residence}}</p>
+          <p>{{rdatas?.datarequi}}</p>
         </ion-label>
                 <ion-icon name="chevron-forward-outline"></ion-icon>
 
       </ion-item>
       <ion-item-options [side]="right">
-        <ion-item-option >
-          <ion-icon name="pencil"></ion-icon>
-          Editar
-        </ion-item-option>
-        <ion-item-option color="danger" >
+        <ion-item-option color="danger" (click)="deleteRBloody(rdatas?.id)">
           <ion-icon name="trash"></ion-icon>
           Apagar
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </div>
-  </div>
+</div>
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

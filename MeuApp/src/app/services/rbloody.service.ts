@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, setDoc, deleteDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 export interface Dados{
@@ -25,4 +25,10 @@ export class RbloodyService {
     const docRefAdd = collection(this.firestore, 'rBloody');
     return setDoc(doc(docRefAdd, id), doaradd);
   }
+
+  deleteRBloody(id) {
+    const dadosDocRef = doc(this.firestore, `rBloody/${id}`);
+    return deleteDoc(dadosDocRef);
+  }
+
 }

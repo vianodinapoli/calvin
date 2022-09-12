@@ -1,6 +1,6 @@
 import { Doar } from './../interfaces/doar';
 import { Injectable } from '@angular/core';
-import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, docData, doc, collectionData, addDoc, setDoc, deleteDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 
@@ -42,7 +42,10 @@ export class DoarService {
 
     updateDoar(id: string, doar: Doar){}
 
-    deleteDoar(id: string){}
+    deleteDoar(id) {
+      const dadosDocRef = doc(this.firestore, `Doar/${id}`);
+      return deleteDoc(dadosDocRef);
+    }
 
 
 }

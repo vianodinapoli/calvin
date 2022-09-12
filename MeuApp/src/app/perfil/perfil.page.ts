@@ -29,7 +29,7 @@ export class PerfilPage implements OnInit {
     private perfil: PerfilService,
     private auth: Auth
   ) {
-    const user = this.auth.currentUser;
+      const user = this.auth.currentUser;
 
       this.perfil.lerPerfilById(user.uid).subscribe((res) =>{
         this.datas = res;
