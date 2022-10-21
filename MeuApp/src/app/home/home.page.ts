@@ -22,6 +22,8 @@ export class HomePage {
   currDate:any;
   ver: boolean = false;
   ver1: boolean = false;
+  statusD: boolean = false;
+  statusR: boolean = false;
 
 
   constructor(
@@ -71,9 +73,14 @@ export class HomePage {
       const user = this.auth.currentUser;
       const adoar = await this.doar.addDoar(user.uid, {
         fullname: this.residences.fullname,
+        bloodytype: this.residences.bloodytype,
+        contact: this.residences.contact,
+        residence: this.residences.residence,
+        cat: "Doação",
         datarequi: moment(today).format("DD-MM-YYYY")
       });
       await loading.dismiss();
+      this.statusD = true;
 
 
     }
@@ -92,9 +99,14 @@ export class HomePage {
       const user = this.auth.currentUser;
       const adoar = await this.requerer.addDados(user.uid, {
         fullname: this.residences.fullname,
+        bloodytype: this.residences.bloodytype,
+        contact: this.residences.contact,
+        residence: this.residences.residence,
+        cat: "Requisição",
         datarequi: moment(today).format("DD-MM-YYYY")
       });
       await loading.dismiss();
+      this.statusR = true;
 
     }
 

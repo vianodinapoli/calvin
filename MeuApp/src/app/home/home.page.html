@@ -21,14 +21,14 @@
         <H6 class="infoone" [routerLink]="['/perfil']" >Ver/Preencher formulario<ion-icon name="chevron-forward-outline"></ion-icon></H6>
       </span>
     </div>
-    <div class="card">
+    <div class="card" *ngIf="!statusR">
         <h1>DOAR SANGUE</h1>
         <hr>
         <span>
           <H6 class="infoone" (click)="addRequiDoa()">Clicar para doar sangue<ion-icon name="chevron-forward-outline"></ion-icon></H6>
         </span>
     </div>
-    <div class="card">
+    <div class="card" *ngIf="!statusD">
       <H3>REQUERER SANGUE</H3>
       <hr>
       <span>
@@ -38,54 +38,60 @@
   </div>
 
 
-<div class="list" >
-  <ion-label>Requisição de Doação</ion-label>
-  <hr>
-  <div class="info" *ngIf="ver">
-    <ion-item-sliding class=" customitem">
-      <ion-item lines="none" >
-        <ion-avatar  slot="start">
-      <img src="assets/img/blood.jpeg">
-        </ion-avatar>
-        <ion-label>
-          <h3 style="color: #5592d9">{{datas?.fullname}}</h3>
-          <p>{{datas?.datarequi}}</p>
-        </ion-label>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
+<div class="list">
+  <div *ngIf="statusD">
+    <ion-label>Requisição de Doação</ion-label>
+    <hr>
+    <div class="info" *ngIf="ver">
+      <ion-item-sliding class=" customitem">
+        <ion-item lines="none" >
+          <ion-avatar  slot="start">
+        <img src="assets/img/blood.jpeg">
+          </ion-avatar>
+          <ion-label>
+            <h3 style="color: #5592d9">{{datas?.fullname}}</h3>
+            <p>{{datas?.datarequi}}</p>
+          </ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
 
-      </ion-item>
-      <ion-item-options [side]="right">
-        <ion-item-option color="danger" (click)="deleteDoar(datas?.id)">
-          <ion-icon name="trash"></ion-icon>
-          Apagar
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+        </ion-item>
+        <ion-item-options [side]="right">
+          <ion-item-option color="danger" (click)="deleteDoar(datas?.id)">
+            <ion-icon name="trash"></ion-icon>
+            Apagar
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
   </div>
+
   <br>
-  <ion-label>Requisição de Pedido de Doação</ion-label>
-  <hr>
-  <div class="info" *ngIf="ver1">
-    <ion-item-sliding class=" customitem">
-      <ion-item lines="none" >
-        <ion-avatar  slot="start">
-      <img src="assets/img/blood.jpeg">
-        </ion-avatar>
-        <ion-label>
-          <h3 style="color: #5592d9">{{rdatas?.fullname}}</h3>
-          <p>{{rdatas?.datarequi}}</p>
-        </ion-label>
-                <ion-icon name="chevron-forward-outline"></ion-icon>
+  <div *ngIf="statusR">
+    <ion-label>Requisição de Pedido de Doação</ion-label>
+    <hr>
+    <div class="info" *ngIf="ver1">
+      <ion-item-sliding class=" customitem">
+        <ion-item lines="none" >
+          <ion-avatar  slot="start">
+        <img src="assets/img/blood.jpeg">
+          </ion-avatar>
+          <ion-label>
+            <h3 style="color: #5592d9">{{rdatas?.fullname}}</h3>
+            <p>{{rdatas?.datarequi}}</p>
+          </ion-label>
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
 
-      </ion-item>
-      <ion-item-options [side]="right">
-        <ion-item-option color="danger" (click)="deleteRBloody(rdatas?.id)">
-          <ion-icon name="trash"></ion-icon>
-          Apagar
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+        </ion-item>
+        <ion-item-options [side]="right">
+          <ion-item-option color="danger" (click)="deleteRBloody(rdatas?.id)">
+            <ion-icon name="trash"></ion-icon>
+            Apagar
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
   </div>
+
 </div>
 
 
