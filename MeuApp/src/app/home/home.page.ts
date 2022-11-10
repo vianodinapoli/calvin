@@ -7,6 +7,7 @@ import { DoarService } from './../services/doar.service';
 import { RbloodyService } from '../services/rbloody.service';
 import { PerfilService } from '../services/perfil.service';
 import * as moment from "moment";
+import { DatasService } from '../services/datas.service';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,10 @@ export class HomePage {
   currDate:any;
   ver: boolean = false;
   ver1: boolean = false;
+  verAgenda: boolean = false;
   statusD: boolean = false;
   statusR: boolean = false;
+  agendado = null;
 
 
   constructor(
@@ -35,20 +38,28 @@ export class HomePage {
     private router: Router,
     private doar: DoarService,
     private requerer: RbloodyService,
-    private auth: Auth
+    private auth: Auth,
+    private dt: DatasService
 
     ) {
       const user = this.auth.currentUser;
       this.doar.lerDoarById(user.uid).subscribe((res) =>{
         this.datas = res;
         // console.log('Requisicao de Doacao', this.datas);
-        if(res!=null) this.ver = true
+        if(res!=null){
+          this.ver = true
+          this.statusD = true
+        }
+
       })
 
       this.requerer.lerDadosById(user.uid).subscribe((res) =>{
         this.rdatas = res;
         // console.log('Requisicao de Pedido de doacao', this.rdatas);
-        if(res!=null) this.ver1 = true
+        if(res!=null){
+          this.ver1 = true
+          this.statusR = true
+        }
       })
 
       this.perfil.lerPerfilById(user.uid).subscribe((res) =>{
@@ -56,6 +67,11 @@ export class HomePage {
         // console.log('perfil', this.perfi);
         this.residences = this.perfi;
       });
+
+      this.dt.leragendados(user.uid).subscribe((res) =>{
+        this.agendado = res;
+        if(res!=null) this.verAgenda = true;
+      })
 
     }
 
@@ -80,9 +96,8 @@ export class HomePage {
         datarequi: moment(today).format("DD-MM-YYYY")
       });
       await loading.dismiss();
+
       this.statusD = true;
-
-
     }
 
     async addRequiPedi(){
