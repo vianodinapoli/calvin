@@ -1,9 +1,9 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons *ngIf="!ver" slot="primary" [routerLink]="['/form']">
-      <ion-button color="secondary">
-        <ion-icon name="add-outline"> </ion-icon>
-      </ion-button>
+ <ion-buttons slot="start">
+      <ion-button color="" [routerLink]="['/home']" routerLinkActive="router-link-active"
+        id="trigger-button">
+        <ion-icon name="chevron-back-outline"></ion-icon>      </ion-button>
     </ion-buttons>
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
@@ -52,9 +52,14 @@
             <ion-list>
               <ion-chip color="danger">
                 <ion-select formControlName="bloodytype" placeholder="Tipo Sanguíneo" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="B">B</ion-select-option>
-                  <ion-select-option value="O">O</ion-select-option>
+                  <ion-select-option value="A">A+</ion-select-option>
+                  <ion-select-option value="B+">B+</ion-select-option>
+                  <ion-select-option value="AB+">AB+</ion-select-option>
+                  <ion-select-option value="O+">O+</ion-select-option>
+                  <ion-select-option value="A-">A-</ion-select-option>
+                  <ion-select-option value="B">B-</ion-select-option>
+                  <ion-select-option value="B-">AB-</ion-select-option>
+                  <ion-select-option value="O-">O-</ion-select-option>
                 </ion-select>
               </ion-chip>
             </ion-list>
