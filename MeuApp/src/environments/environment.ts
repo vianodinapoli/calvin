@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCi_yyI-Z7sJlBP07UMuRTIhNeCp30UjBQ",
-    authDomain: "calvin-blood-project.firebaseapp.com",
-    projectId: "calvin-blood-project",
-    storageBucket: "calvin-blood-project.appspot.com",
-    messagingSenderId: "32337844807",
-    appId: "1:32337844807:web:712931426c53f2d5292f62",
-    measurementId: "G-5GEDMD4JSE"
+    apiKey: "AIzaSyAaKhTIeO_qZu4Tu_SfZllfAsIBXYS-nSc",
+    authDomain: "calvinbloodapp.firebaseapp.com",
+    projectId: "calvinbloodapp",
+    storageBucket: "calvinbloodapp.appspot.com",
+    messagingSenderId: "985037224975",
+    appId: "1:985037224975:web:fe1e9921c619efb024777a",
+    measurementId: "G-8KE4T2JHP1"
   }
 };
 
